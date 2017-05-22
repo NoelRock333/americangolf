@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const webpack = require('webpack');
+var compass = require('node-compass');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -31,6 +32,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(compass());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
