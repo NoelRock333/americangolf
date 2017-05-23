@@ -1,5 +1,8 @@
 import React from 'react';
 
+import Header from '../shared/Header';
+import Filters from '../Filters'
+
 export default class HomeContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +17,7 @@ export default class HomeContainer extends React.Component {
         "back-to-top smooth-scrolling"><i className=
         "icon icon-arrow_up"></i><span className=
         "back-to-top-text">Back to top</span></a>
-        {/*  include header */}
+        <Header />
         <main id="main-wrapper" className="main-wrapper">
           <div className="cat-page-slot cat-page-slot-herobanner">
           </div>
@@ -44,6 +47,7 @@ export default class HomeContainer extends React.Component {
               </div>
             </div>
             <div className="grid-row">
+              <Filters />
               {/* include sidebar */}
               {/* include products */}
               <div className="content-slot slot-grid-footer"></div>
@@ -105,7 +109,7 @@ export default class HomeContainer extends React.Component {
             </div>
           </div>
         </div>
-        
+
       </div>
     );
   }
