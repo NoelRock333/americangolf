@@ -1,4 +1,5 @@
 import React from 'react';
+import Products from '../Products';
 
 import Header from '../shared/Header';
 import Filters from '../Filters'
@@ -49,7 +50,7 @@ export default class HomeContainer extends React.Component {
             <div className="grid-row">
               <Filters />
               {/* include sidebar */}
-              {/* include products */}
+              <Products />
               <div className="content-slot slot-grid-footer"></div>
             </div>
             <span style={{ display:'none' }}>
