@@ -11,8 +11,8 @@ export default class ProductItem extends React.Component {
 
   render() {
     var product = this.state.product;
-    var colors = product.colors.map(color => {
-      return <ProductColor data={ color } />
+    var colors = product.colors.map((color, index) => {
+      return <ProductColor data={ color } key={index} />
     });
 
     return (
