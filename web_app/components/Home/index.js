@@ -2,6 +2,7 @@ import React from 'react';
 import Products from '../Products';
 
 import Header from '../shared/Header';
+import Footer from '../shared/Footer';
 import Filters from '../Filters';
 
 export default class HomeContainer extends React.Component {
@@ -59,6 +60,7 @@ export default class HomeContainer extends React.Component {
           </div>
         </main>
         {/* include footer */}
+        <Footer />
         <div id="modal" className="modal">
           <div className="modal-button close-modal">
             <span className="text">Close</span> <i className=
