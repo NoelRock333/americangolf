@@ -1,70 +1,147 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Color = ({id, img}) => (
-  <li className="swatch swatch-beige">
-    <a id={id} href={img} title="Beige" className="listingchange swatchanchor"><span className="swatchanchor-inner">Beige</span></a>
+const Colour = ({id, name, className, handleClick, selected}) => (
+  <li className={`swatch ${selected ? 'selected' : ''} ${className}`} onClick={handleClick} >
+    <a
+      id={id}
+      title={name}
+      className='listingchange swatchanchor'
+    >
+      <span className='swatchanchor-inner'>${name}</span>
+    </a>
   </li>
 );
 
-const ColourFilter = () => (
-  <div className="refinement refinementColour">
-    <h3 className="toggle refinementhead expanded">
-      Colour
-    </h3>
-    <div className="toggle-content refinementvalues expanded">
-      <ul className="swatches swatches-color Colour">
+class ColourFilter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      colours: [
+        {
+          className: 'swatch-black',
+          id: 'swatch-black',
+          name: 'Black',
+          selected: false
+        },
+        {
+          className: 'swatch-blue',
+          id: 'swatch-blue',
+          name: 'Blue',
+          selected: false
+        },
+        {
+          className: 'swatch-brown',
+          id: 'swatch-brown',
+          name: 'Brown',
+          selected: false
+        },
+        {
+          className: 'swatch-gold',
+          id: 'swatch-gold',
+          name: 'Gold',
+          selected: false
+        },
+        {
+          className: 'swatch-green',
+          id: 'swatch-green',
+          name: 'Green',
+          selected: false
+        },
+        {
+          className: 'swatch-grey',
+          id: 'swatch-grey',
+          name: 'Grey',
+          selected: false
+        },
+        {
+          className: 'swatch-multi',
+          id: 'swatch-multi',
+          name: 'Multi',
+          selected: false
+        },
+        {
+          className: 'swatch-navy',
+          id: 'swatch-navy',
+          name: 'Navy',
+          selected: false
+        },
+        {
+          className: 'swatch-orange',
+          id: 'swatch-orange',
+          name: 'Orange',
+          selected: false
+        },
+        {
+          className: 'swatch-pink',
+          id: 'swatch-pink',
+          name: 'Pink',
+          selected: false
+        },
+        {
+          className: 'swatch-purple',
+          id: 'swatch-purple',
+          name: 'Purple',
+          selected: false
+        },
+        {
+          className: 'swatch-red',
+          id: 'swatch-red',
+          name: 'Red',
+          selected: false
+        },
+        {
+          className: 'swatch-silver',
+          id: 'swatch-silver',
+          name: 'Silver',
+          selected: false
+        },
+        {
+          className: 'swatch-white',
+          id: 'swatch-white',
+          name: 'White',
+          selected: false
+        },
+        {
+          className: 'swatch-yellow',
+          id: 'swatch-yellow',
+          img: 'http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Yellow',
+          name: 'Yellow',
+          selected: false
+        },
+        {
+          className: 'swatch-cream',
+          id: 'swatch-cream',
+          img: 'http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Cream',
+          name: 'Cream',
+          selected: false
+        }
+      ]
+    };
+  }
 
-        <li className="swatch swatch-black">
-          <a id="swatch-black" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Black" title="Black" className="listingchange swatchanchor"><span className="swatchanchor-inner">Black</span></a>
-        </li>
-        <li className="swatch swatch-blue">
-          <a id="swatch-blue" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Blue" title="Blue" className="listingchange swatchanchor"><span className="swatchanchor-inner">Blue</span></a>
-        </li>
-        <li className="swatch swatch-brown">
-          <a id="swatch-brown" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Brown" title="Brown" className="listingchange swatchanchor"><span className="swatchanchor-inner">Brown</span></a>
-        </li>
-        <li className="swatch swatch-gold">
-          <a id="swatch-gold" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Gold" title="Gold" className="listingchange swatchanchor"><span className="swatchanchor-inner">Gold</span></a>
-        </li>
-        <li className="swatch swatch-green">
-          <a id="swatch-green" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Green" title="Green" className="listingchange swatchanchor"><span className="swatchanchor-inner">Green</span></a>
-        </li>
-        <li className="swatch swatch-grey">
-          <a id="swatch-grey" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Grey" title="Grey" className="listingchange swatchanchor"><span className="swatchanchor-inner">Grey</span></a>
-        </li>
-        <li className="swatch swatch-multi">
-          <a id="swatch-multi" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Multi" title="Multi" className="listingchange swatchanchor"><span className="swatchanchor-inner">Multi</span></a>
-        </li>
-        <li className="swatch swatch-navy">
-          <a id="swatch-navy" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Navy" title="Navy" className="listingchange swatchanchor"><span className="swatchanchor-inner">Navy</span></a>
-        </li>
-        <li className="swatch swatch-orange">
-          <a id="swatch-orange" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Orange" title="Orange" className="listingchange swatchanchor"><span className="swatchanchor-inner">Orange</span></a>
-        </li>
-        <li className="swatch swatch-pink">
-          <a id="swatch-pink" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Pink" title="Pink" className="listingchange swatchanchor"><span className="swatchanchor-inner">Pink</span></a>
-        </li>
-        <li className="swatch swatch-purple">
-          <a id="swatch-purple" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Purple" title="Purple" className="listingchange swatchanchor"><span className="swatchanchor-inner">Purple</span></a>
-        </li>
-        <li className="swatch swatch-red">
-          <a id="swatch-red" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Red" title="Red" className="listingchange swatchanchor"><span className="swatchanchor-inner">Red</span></a>
-        </li>
-        <li className="swatch swatch-silver">
-          <a id="swatch-silver" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Silver" title="Silver" className="listingchange swatchanchor"><span className="swatchanchor-inner">Silver</span></a>
-        </li>
-        <li className="swatch swatch-white">
-          <a id="swatch-white" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=White" title="White" className="listingchange swatchanchor"><span className="swatchanchor-inner">White</span></a>
-        </li>
-        <li className="swatch swatch-yellow">
-          <a id="swatch-yellow" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Yellow" title="Yellow" className="listingchange swatchanchor"><span className="swatchanchor-inner">Yellow</span></a>
-        </li>
-        <li className="swatch swatch-cream">
-          <a id="swatch-cream" href="http://www.americangolf.co.uk/golf-products?prefn1=refinementColour&prefv1=Cream" title="Cream" className="listingchange swatchanchor"><span className="swatchanchor-inner">Cream</span></a>
-        </li>
-      </ul>
-    </div>
-  </div>
-);
+  handleClick(id) {
+    const colours = this.state.colours.map(colour => (
+      colour.id === id ? {...colour, selected: !colour.selected} : colour
+    ));
+    this.setState({colours});
+  }
+
+  render() {
+    const colours = this.state.colours.map(color => <Colour {...color} handleClick={() => this.handleClick(color.id)} />);
+
+    return  (
+      <div className='refinement refinementColour'>
+        <h3 className='toggle refinementhead expanded'>
+          Colour
+        </h3>
+        <div className='toggle-content refinementvalues expanded' style={{display: 'block'}}>
+          <ul className='swatches swatches-color Colour'>
+            {colours}
+          </ul>
+        </div>
+      </div>
+    );
+  }
+}
 
 export default ColourFilter;

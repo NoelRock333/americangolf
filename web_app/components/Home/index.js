@@ -2,7 +2,7 @@ import React from 'react';
 import Products from '../Products';
 
 import Header from '../shared/Header';
-import Filters from '../Filters'
+import Filters from '../Filters';
 
 export default class HomeContainer extends React.Component {
   constructor(props) {

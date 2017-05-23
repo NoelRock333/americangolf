@@ -29,7 +29,7 @@ class PriceRange extends Component {
         <h3 className="refinementhead toggle expanded">
           <span>Price range</span>
         </h3>
-        <div className="refinementvalues toggle-content expanded">
+        <div className="refinementvalues toggle-content expanded" style={{display: 'block'}}>
           <div className="price-slider">
             <div className="slider-control-ctr" >
               <div className="slider-control" onClick={this.changeRange}>
