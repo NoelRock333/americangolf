@@ -1,4 +1,5 @@
 import React from 'react';
+import Products from '../Products';
 
 export default class HomeContainer extends React.Component {
   constructor(props) {
@@ -45,7 +46,7 @@ export default class HomeContainer extends React.Component {
             </div>
             <div className="grid-row">
               {/* include sidebar */}
-              {/* include products */}
+              <Products />
               <div className="content-slot slot-grid-footer"></div>
             </div>
             <span style={{ display:'none' }}>

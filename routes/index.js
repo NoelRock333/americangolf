@@ -7,5 +7,12 @@ router.get('/', function(req, res, next) {
   res.render('layout');
 });
 
+router.get('/products', (req, res, next) => {
+  var db = req.db;
+  var collection = db.get('products');
+  collection.find({}, {}, (err, docs) => {
+      res.json(docs);
+  });
+});
 
 module.exports = router;
