@@ -11,7 +11,9 @@ export default class ProductsContainer extends React.Component {
   }
 
   componentDidMount() {
+    console.log('hola!');
     ProductsStore.fetch().then(products => {
+      console.log(products, 'lo;diufoplfudjslofjulo;sdjflo;dsjfsdlj;kfljs;dkldf;skl;fdskl;fdskl;dfskl;fdskl;fdskl;dfskl;dfskl;fdskl;df');
       this.setState({
         products: products.map(product => {
           return <ProductItem data={product} key={product._id}/>
