@@ -1,19 +1,26 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@font-face {
+	font-family: 'ag-iconfont';
+	src: url('/fonts/ag-iconfont.eot');
+	src: url('/fonts/ag-iconfont.eot?#iefix') format('embedded-opentype'),
+	url('/fonts/ag-iconfont.woff2') format('woff2'),
+	url('/fonts/ag-iconfont.ttf') format('truetype'),
+	url('/fonts/ag-iconfont.woff') format('woff'),
+	url('/fonts/ag-iconfont.svg#bs-iconfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'wash-iconfont';
+	src: url('/fonts/washicons.eot');
+	src: url('/fonts/washicons.eot?#iefix') format('embedded-opentype'),
+	url('/fonts/washicons.woff2') format('woff2'),
+	url('/fonts/washicons.ttf') format('truetype'),
+	url('/fonts/washicons.woff') format('woff'),
+	url('/fonts/washicons.svg#bs-iconfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
-a {
-  color: #00B7FF;
-}
-
-body.sticky-header{
-	padding-top: 100px;
-	header {
-		height: 60px;
-		background-color: rgba(52,152,219,.9);
-		/* h1{
-			@include scale(0);
-		} */
-	}
+.brand-carousel-row .brand-tile .brand-tile-image {
+	background-image: url('http://www.americangolf.co.uk/on/demandware.static/-/Sites/default/dw9b5c0d90/2017/ag/content/homepage/row-7/brand-banner-sprite.png');
 }

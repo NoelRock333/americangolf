@@ -11,7 +11,13 @@ $(function(){
   $('body').on('mouseover', '.li-level-1', function() {
     $(this).addClass('hover');
   });
+  
   $('body').on('mouseleave', '.li-level-1', function() {
     $(this).removeClass('hover');
   });
+
+  $('.carousel').carousel({
+    interval: 2000
+  });
+
 });

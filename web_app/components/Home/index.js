@@ -2,7 +2,19 @@ import React from 'react';
 import Products from '../Products';
 
 import Header from '../shared/Header';
-import Filters from '../Filters'
+import Filters from '../Filters';
+import Carousel from './Carousel';
+import TopCategories from './TopCategories';
+import FreeSection from './FreeSection';
+import NikeClothing from './NikeClothing';
+import MegaDeals from './MegaDeals';
+import GreatValueOffers from './GreatValueOffers';
+import PopularBrands from './PopularBrands';
+import LatestGreatestGear from './LatestGreatestGear';
+import ImproveYourGame from './ImproveYourGame';
+import ImproveYourGame2 from './ImproveYourGame2';
+import GolfClubs from './GolfClubs';
+import Footer from '../shared/Footer';
 
 export default class HomeContainer extends React.Component {
   constructor(props) {
@@ -20,45 +32,33 @@ export default class HomeContainer extends React.Component {
         "back-to-top-text">Back to top</span></a>
         <Header />
         <main id="main-wrapper" className="main-wrapper">
-          <div className="cat-page-slot cat-page-slot-herobanner">
+          <div className="row">
+            <Carousel />
           </div>
-          <div id="main" role="main" className="main" data-searchurl="/search-results">
-            <div className="search-top grid-row">
-              <div className=
-              "col-sm-12 col-md-12 col-lg-3 full-height only-on-lg">
-                <ul className="breadcrumb">
-                  <li className="breadcrumb-element">
-                    <a href="/home" className=
-                    "breadcrumb-element-inner" title=
-                    "Home">Home</a>
-                  </li>
-                  <li style={{ listStyle: 'none', display: 'inline' }}>
-                  </li>
-                </ul>
-              </div>
-              <div className=
-              "col-sm-12 col-md-12 col-lg-9 full-height">
-                <div className="search-result-top">
-                  <h1 className="search-result-title heading-1">
-                    Golf Products <span className=
-                    "only-on-og search-result-count">(2508)</span>
-                  </h1>
-                  {/* include filter_and_sort */}
+          <div id="main" role="main" className="main no-spacing-top no-spacing-bottom">
+            <div id="primary" className="primary-content">
+              <div className="homepage">
+                <div className="home-slot home-slot-2">
+                  <div className="html-slot-container">
+                    <TopCategories />
+                    <FreeSection />
+                    <NikeClothing />
+                    <MegaDeals />
+                    <GreatValueOffers />
+                    <PopularBrands />
+                    <LatestGreatestGear />
+                    <ImproveYourGame />
+                    <ImproveYourGame2 />
+                    <GolfClubs />
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="grid-row">
-              <Filters />
-              {/* include sidebar */}
-              <Products />
-              <div className="content-slot slot-grid-footer"></div>
-            </div>
-            <span style={{ display:'none' }}>
-              <img className="redeyepixel" width="1" height="1" alt="AG RedEye Pixel" src="https://reporting.americangolf.co.uk/cgi-bin/rr/blank.gif?nourl=sub-sub-category-view&amp;view_cat_event=view_cat_event&amp;view_cat_name=Golf%20Products&amp;view_cat_code1=307757&amp;view_cat_prod_domain1=AmericanGolf-GB&amp;view_cat_code2=C005&amp;view_cat_prod_domain2=AmericanGolf-GB&amp;view_cat_code3=307574&amp;view_cat_prod_domain3=AmericanGolf-GB&amp;view_cat_code4=297340&amp;view_cat_prod_domain4=AmericanGolf-GB&amp;view_cat_code5=C002&amp;view_cat_prod_domain5=AmericanGolf-GB&amp;view_cat_code6=311213&amp;view_cat_prod_domain6=AmericanGolf-GB&amp;view_cat_code7=311313&amp;view_cat_prod_domain7=AmericanGolf-GB&amp;view_cat_code8=231716&amp;view_cat_prod_domain8=AmericanGolf-GB&amp;view_cat_url=www.americangolf.co.uk/on/demandware.store/Sites-AmericanGolf-GB-Site/en_GB/Search-Show&amp;view_cat_domain=AmericanGolf-GB&amp;view_cat_currency=GBP&amp;domain=AmericanGolf-GB&amp;currency=GBP" />
-            </span>
           </div>
         </main>
-        {/* include footer */}
+        <div className="row">
+          <Footer />
+        </div>
         <div id="modal" className="modal">
           <div className="modal-button close-modal">
             <span className="text">Close</span> <i className=
@@ -70,24 +70,6 @@ export default class HomeContainer extends React.Component {
         <div className="modal-background-overlay">
         </div>
         <iframe src="https://americangolfclub.onserro.com/global/refreshsession" style={{ display: 'none', visibility: 'hidden' }}></iframe>
-        <div className="cookiewarning" style={{ display:'none' }}>
-          <div className="cookiewarning-inner">
-            <div className="cookiewarning-content grid-row">
-              <div className=
-              "cookiewarning-message col-md-9 col-lg-10">
-                <div className="content-asset">
-                  By continuing to browse the site you are agreeing
-                  to our use of cookies or find out more <a href=
-                  "http://www.americangolf.co.uk/cookie-policy/cookie-policy.html"
-                  className="dialoglink">here</a>.
-                </div>
-              </div>
-              <div className="cookiewarning-button col-md-3 col-lg-2">
-                <a className="button">Accept</a>
-              </div>
-            </div>
-          </div>
-        </div>
         <div id="ajaxloader" className="ajaxloader loading-indicator full-screen" style={{ display: 'none' }}>
           <div className="loader only-on-ag">
             <div className="loader-rect1">
