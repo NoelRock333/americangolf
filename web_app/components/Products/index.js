@@ -1,28 +1,49 @@
 import React from 'react';
+import {Container} from 'flux/utils';
+
 import ProductItem from '../Product/item';
 import ProductsStore from '../../stores/ProductsStore';
+import FiltersStore from '../../stores/FiltersStore';
 
-export default class ProductsContainer extends React.Component {
+class ProductsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: [],
+      filteredProducts: []
     };
   }
 
-  componentDidMount() {
-    console.log('hola!');
-    ProductsStore.fetch().then(products => {
-      console.log(products, 'lo;diufoplfudjslofjulo;sdjflo;dsjfsdlj;kfljs;dkldf;skl;fdskl;fdskl;dfskl;fdskl;fdskl;dfskl;dfskl;fdskl;df');
-      this.setState({
-        products: products.map(product => {
-          return <ProductItem data={product} key={product._id}/>
-        })
-      });
+  componentWillReceiveProps({filters}) {
+    this.filter(filters);
+  }
+
+  async componentDidMount() {
+    const products = await ProductsStore.fetch();
+    this.setState({
+      products,
+      filteredProducts: products
     });
   }
 
+  filter(filters) {
+    if (!Object.keys(filters).length) return;
+
+    const filteredProducts = this.state.products.filter(product => {
+      if(filters.colour && filters.colour.length) {
+        const isInThere = product.colors.map(color => color.title).some(color => (
+          filters.colour.some(colorF => color.includes(colorF))
+        ));
+        return isInThere;
+      } else {
+        return true;
+      }
+    });
+    this.setState({filteredProducts});
+  }
+
   render() {
+    const products = this.state.filteredProducts.map(product =>  <ProductItem data={product} key={product._id}/>)
     return (
       <div id="primary" className="col-sm-12 col-md-12 col-lg-9 full-height primary-content">
           <div id="compare-controls">
@@ -93,7 +114,7 @@ export default class ProductsContainer extends React.Component {
           <div className="search-result-content">
               <ul id="search-result-items" className="search-result-items tiles-container grid-row" data-infinitescroll="{&quot;pageCount&quot;:208,&quot;pageSize&quot;:12,&quot;loadedPage&quot;:0,&quot;pagingURL&quot;:&quot;http://www.americangolf.co.uk/golf-products?sz=12&start=0&format=infinite&quot;,&quot;browsingURL&quot;:&quot;http://www.americangolf.co.uk/golf-products?sz=12&start=0&quot;,&quot;preloadImg&quot;:&quot;http://www.americangolf.co.uk/dw/image/v2/AAKY_PRD/on/demandware.static/Sites-AmericanGolf-GB-Site/-/default/dw447a2483/images/spacer.png?sw=255&sh=170&sfrm=png&quot;,&quot;productCount&quot;:2508}">
               {/* Products */}
-              { this.state.products }
+              { products }
               </ul>
               <div className="inline-loading-indicator loading-indicator" style={{display: 'none'}}>
               <div className="loader only-on-ag">
@@ -128,4 +149,22 @@ export default class ProductsContainer extends React.Component {
     );
   }
 }
+
+function getStores() {
+  return [
+    FiltersStore
+  ];
+}
+
+function getState() {
+  return {
+    filters: FiltersStore.getState()
+  };
+}
+
+const MainContainer = ({filters}) => (
+  <ProductsContainer filters={filters} />
+);
+
+export default Container.createFunctional(MainContainer, getStores, getState);
 
