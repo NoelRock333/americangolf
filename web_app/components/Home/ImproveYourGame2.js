@@ -62,7 +62,7 @@ export default class ImproveYourGame extends React.Component {
           <div className="col-sm-12 col-md-6 col-lg-4 only-on-lg">
             <div className="banner banner-blue">
               <div className="content">
-                <h3 className="banner-heading" style={{fontSize: 32, lineHeight: 32}}>
+                <h3 className="banner-heading" style={{fontSize: '32px', lineHeight: '32px'}}>
                   Pre – Owned Golf Clubs
                 </h3>
                 <div>
